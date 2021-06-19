@@ -1,0 +1,82 @@
+.main_div {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: scroll;
+  background-image: url("../images/nightsky.jpg");
+  background-size: 100% 100%;
+}
+
+.weather_container {
+  width: 90%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 70px 8%;
+  grid-auto-rows: 150px;
+  margin: 60px auto;
+  font-size: 10px;
+}
+.display {
+  width: 23vw;
+  height: 180px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 0.5px solid grey;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: rgb(32, 5, 105);
+}
+.content_align {
+  width: 23vw;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#sun {
+  color: orange;
+  font-size: 20px;
+  display: block;
+}
+#clouds {
+  color: white;
+  display: block;
+  font-size: 40px;
+  margin-left: 30px;
+  margin-top: -17px;
+}
+#thermostat {
+  font-size: 20px;
+}
+#water_drop {
+  font-size: 4px;
+}
+.more_info_open {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-image: linear-gradient(
+    rgb(80, 169, 175),
+    rgb(5, 148, 158),
+    rgb(21, 111, 117)
+  );
+  color: white;
+  overflow: auto;
+}
+.more_info_close {
+  display: none;
+}
+.heading {
+  width: 100%;
+  background-image: linear-gradient(
+    rgb(182, 58, 231),
+    rgb(136, 14, 184),
+    rgb(173, 9, 238)
+  );
+  position: fixed;
+  font-size: 9px;
+}
+.heading td {
+}

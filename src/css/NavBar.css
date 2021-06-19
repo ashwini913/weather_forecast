@@ -1,0 +1,23 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.nav_bar {
+  width: 100vw;
+  height: 30px;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(154, 103, 248),
+    rgb(142, 54, 214),
+    rgb(218, 134, 252)
+  );
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+.place {
+  margin-right: 30px;
+  font-size: 10px;
+  color: white;
+}

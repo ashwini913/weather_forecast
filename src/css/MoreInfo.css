@@ -1,0 +1,12 @@
+#cloud {
+  color: white;
+}
+.container {
+  margin-bottom: 5px;
+  width: 100%;
+  font-size: 8px;
+  height: 25px;
+}
+.container td {
+  width: 15%;
+}
