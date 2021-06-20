@@ -86,17 +86,85 @@ function App() {
         let date6 = d6.getDate();
         return date6 === filteredDays[5];
       });
+      let cloudy = () => {
+        return (
+          <div>
+            <i id="sun" className="material-icons">
+              light_mode
+            </i>
+            <i id="clouds" className="material-icons">
+              clouds
+            </i>
+          </div>
+        );
+      };
+      let sunny = () => {
+        return (
+          <div>
+            <i id="sun" className="material-icons">
+              light_mode
+            </i>
+          </div>
+        );
+      };
+      let overCastClouds = () => {
+        return (
+          <div className="over_cast_clouds">
+            <i id="clouds" className="material-icons">
+              clouds
+            </i>
+          </div>
+        );
+      };
+      let rainy = () => {
+        return (
+          <div>
+            <i id="sun" className="material-icons">
+              light_mode
+            </i>
+            <i id="clouds" className="material-icons">
+              clouds
+            </i>
+            <i id="water" className="material-icons">
+              grain
+            </i>
+          </div>
+        );
+      };
+      const weather = (arr) => {
+        let description;
+        if (Array.isArray(arr)) {
+          description = arr[1].weather[0].description;
+        } else {
+          description = arr.weather[0].description;
+        }
+        switch (description) {
+          case "cloudy":
+            return cloudy();
+          case "overcast clouds":
+            return overCastClouds();
+          case "rainy":
+            return rainy();
+          case "moderate rain":
+            return rainy();
+          case "light rain":
+            return rainy();
+          case "sunny":
+            return sunny();
+          case "broken clouds":
+            return cloudy();
+          case "scattered clouds":
+            return cloudy();
+          default:
+            return "";
+        }
+      };
       const weatherDisplay = (arr, day) => {
         return (
           <div className="content_align">
             <div className="day_name">{day}</div>
             <p className="weather">{arr[1].weather[0].description}</p>
-            <span id="sun" className="material-icons">
-              light_mode
-            </span>
-            <i id="clouds" className="material-icons">
-              clouds
-            </i>
+            {weather(arr)}
             <i id="thermostat" className="material-icons">
               thermostat
             </i>
@@ -105,21 +173,7 @@ function App() {
           </div>
         );
       };
-      let cloudy = () => {
-        return (
-          <div>
-            <i className="material-icons">clouds</i>
-            <i className="material-icons">clouds</i>
-          </div>
-        );
-      };
-      let sunny = () => {
-        return (
-          <div>
-            <i className="material-icons">light_mode</i>
-          </div>
-        );
-      };
+
       let date = (array) => {
         let date = new Date(array[0].dt_txt);
         let days = ["SUN", "MON", "TUE", "WED", "THUR", "FRI", "SAT"];
@@ -154,27 +208,7 @@ function App() {
           {console.log(weatherData)}
           {console.log(today)}
           <div className={open ? "more_info_open" : "more_info_close"}>
-            <table className="heading">
-              <tbody>
-                <tr>
-                  <td>weather</td>
-                  <td>time</td>
-                  <td>min temp</td>
-                  <td>max temp</td>
-                  <td>wind speed</td>
-                  <td>humidity</td>
-
-                  <i
-                    style={{ float: "right" }}
-                    onClick={() => setOpen(!open)}
-                    className="material-icons"
-                  >
-                    close
-                  </i>
-                </tr>
-              </tbody>
-            </table>
-            <MoreInfo selected={selected} />
+            <MoreInfo selected={selected} open={open} setOpen={setOpen} />
           </div>
         </div>
       );

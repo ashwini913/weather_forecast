@@ -1,12 +1,26 @@
-#cloud {
-  color: white;
-}
 .container {
   margin-bottom: 5px;
-  width: 100%;
+  width: 90%;
   font-size: 8px;
   height: 25px;
 }
 .container td {
-  width: 15%;
+  width: 19vh;
+}
+.heading {
+  width: 100%;
+  background-image: linear-gradient(
+    rgb(182, 58, 231),
+    rgb(136, 14, 184),
+    rgb(173, 9, 238)
+  );
+  position: fixed;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-size: 9px;
+}
+.heading h5 {
+  width: 21vh;
 }
