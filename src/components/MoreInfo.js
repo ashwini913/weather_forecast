@@ -39,7 +39,7 @@ function MoreInfo({ selected, open, setOpen }) {
 
   return (
     <div>
-      <div className="heading">
+      <div className="heaing">
         <h5>weather</h5>
         <h5>time</h5>
         <h5>min temp</h5>
