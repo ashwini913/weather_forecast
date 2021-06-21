@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import weather from "./api/weather";
 import MoreInfo from "./components/MoreInfo";
+import { config } from "dotenv";
 import "./css/App.css";
 function App() {
-  const apiKey = "3e0c3fa6099f0f29dc1363a2e9e27d5b";
   let [lat, setLat] = useState("");
   let [long, setLong] = useState("");
   let [term, setTerm] = useState("");
   let [weatherData, setWeatherData] = useState(null);
   let [open, setOpen] = useState(false);
   let [selected, setSelected] = useState([]);
+  config();
+  const apiKey = process.env.REACT_APP_API_KEY;
+  console.log("key", apiKey);
   const getPosition = () => {
     return new Promise((resolve, reject) =>
       navigator.geolocation.getCurrentPosition(resolve, reject)
@@ -207,6 +210,8 @@ function App() {
           </div>
           {console.log(weatherData)}
           {console.log(today)}
+
+          {console.log("process", process.env.REACT_APP_API_KEY)}
           <div className={open ? "more_info_open" : "more_info_close"}>
             <MoreInfo selected={selected} open={open} setOpen={setOpen} />
           </div>
